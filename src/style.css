@@ -8,3 +8,30 @@ body {
   margin: 0;
   min-height: 100%;
 }
+header {
+  display: flex;
+  justify-content: center;
+}
+.playerArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+}
+.player1,
+.player2 {
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+  border: 2px;
+  border-style: solid;
+  border-color: black;
+}
+.fa-solid {
+  font-size: 5rem;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+}
