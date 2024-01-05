@@ -8,11 +8,17 @@ const player1PaperButton = document.querySelector('.player1 .fa-hand')
 const player1ScissorsButton = document.querySelector(
   '.player1 .fa-hand-scissors'
 )
+const player1LizardButton = document.querySelector('player1 .fa-hand-lizard')
+const player1SpockButton = document.querySelector('.player1 .fa-hand-spock')
+
 const player2RockButton = document.querySelector('.player2 .fa-hand-back-fist')
 const player2PaperButton = document.querySelector('.player2 .fa-hand')
 const player2ScissorsButton = document.querySelector(
   '.player2 .fa-hand-scissors'
 )
+const player2LizardButton = document.querySelector('player2 .fa-hand-lizard')
+const player2SpockButton = document.querySelector('.player2 .fa-hand-spock')
+
 const player1RevealChoice = document.querySelector('.player1 p i')
 const player2RevealChoice = document.querySelector('.player2 p i')
 
@@ -31,6 +37,8 @@ function clickOnPlayer1ScissorsButton() {
   console.log(`Player one's choice is ${player1Choice}!`)
   readyToPlay()
 }
+function clickOnPlayer1LizardButton() {}
+function clickOnPlayer1SpockButton() {}
 function clickOnPlayer2RockButton() {
   player2Choice = 'rock'
   console.log(`Player two's choice is ${player2Choice}!`)
@@ -46,6 +54,8 @@ function clickOnPlayer2ScissorsButton() {
   console.log(`Player two's choice is ${player2Choice}!`)
   readyToPlay()
 }
+function clickOnPlayer2LizardButton() {}
+function clickOnPlayer2SpockButton() {}
 function readyToPlay() {
   if (player1Choice != ' ') {
     if (player1RevealChoice) {
@@ -128,6 +138,10 @@ function weHaveAWinner() {
 player1RockButton?.addEventListener('click', clickOnPlayer1RockButton)
 player1PaperButton?.addEventListener('click', clickOnPlayer1PaperButton)
 player1ScissorsButton?.addEventListener('click', clickOnPlayer1ScissorsButton)
+player1LizardButton?.addEventListener('click', clickOnPlayer1LizardButton)
+player1SpockButton?.addEventListener('click', clickOnPlayer1SpockButton)
 player2RockButton?.addEventListener('click', clickOnPlayer2RockButton)
 player2PaperButton?.addEventListener('click', clickOnPlayer2PaperButton)
 player2ScissorsButton?.addEventListener('click', clickOnPlayer2ScissorsButton)
+player2LizardButton?.addEventListener('click', clickOnPlayer2LizardButton)
+player2SpockButton?.addEventListener('click', clickOnPlayer2SpockButton)
