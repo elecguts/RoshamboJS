@@ -13,12 +13,8 @@ const player2PaperButton = document.querySelector('.player2 .fa-hand')
 const player2ScissorsButton = document.querySelector(
   '.player2 .fa-hand-scissors'
 )
-console.log(player1RockButton)
-console.log(player1PaperButton)
-console.log(player1ScissorsButton)
-console.log(player2RockButton)
-console.log(player2PaperButton)
-console.log(player2ScissorsButton)
+const player1RevealChoice = document.querySelector('.player1 p i')
+const player2RevealChoice = document.querySelector('.player2 p i')
 
 function clickOnPlayer1RockButton() {
   player1Choice = 'rock'
@@ -53,15 +49,71 @@ function clickOnPlayer2ScissorsButton() {
 function readyToPlay() {
   if (player1Choice != ' ' && player2Choice != ' ') {
     console.log('We are ready to play!')
+    if (player1Choice === 'rock') {
+      if (player1RevealChoice) {
+        player1RevealChoice.className = 'fa-solid fa-hand-back-fist'
+      }
+    }
+    if (player1Choice === 'paper') {
+      if (player1RevealChoice) {
+        player1RevealChoice.className = 'fa-solid fa-hand'
+      }
+    }
+    if (player1Choice === 'scissors') {
+      if (player1RevealChoice) {
+        player1RevealChoice.className = 'fa-solid fa-hand-scissors'
+      }
+    }
+
+    if (player2Choice === 'rock') {
+      if (player2RevealChoice) {
+        player2RevealChoice.className = 'fa-solid fa-hand-back-fist'
+      }
+    }
+    if (player2Choice === 'paper') {
+      if (player2RevealChoice) {
+        player2RevealChoice.className = 'fa-solid fa-hand'
+      }
+    }
+    if (player2Choice === 'scissors') {
+      if (player2RevealChoice) {
+        player2RevealChoice.className = 'fa-solid fa-hand-scissors'
+      }
+    }
     weHaveAWinner()
   } else {
     console.log('We are not ready')
   }
 }
 function weHaveAWinner() {
-  console.log(player1Choice)
-  console.log(player2Choice)
-  console.log('We have a winner!')
+  if (
+    (player1Choice === 'rock' && player2Choice === 'scissors') ||
+    (player1Choice === 'scissors' && player2Choice === 'paper') ||
+    (player1Choice === 'paper' && player2Choice === 'rock')
+  ) {
+    setTimeout(function () {
+      window.alert('Player 1 wins!'), 100
+    })
+  } else if (player1Choice === player2Choice) {
+    setTimeout(function () {
+      window.alert('We have a tie!'), 100
+    })
+  } else {
+    setTimeout(function () {
+      window.alert('Player 2 wins!')
+    }, 100)
+  }
+  console.log('Game over!')
+  setTimeout(function () {
+    player1Choice = ' '
+    player2Choice = ' '
+    if (player1RevealChoice) {
+      player1RevealChoice.className = 'fa-solid fa-question'
+    }
+    if (player2RevealChoice) {
+      player2RevealChoice.className = 'fa-solid fa-question'
+    }
+  }, 2000)
 }
 player1RockButton?.addEventListener('click', clickOnPlayer1RockButton)
 player1PaperButton?.addEventListener('click', clickOnPlayer1PaperButton)
