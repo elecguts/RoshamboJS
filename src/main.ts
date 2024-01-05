@@ -47,6 +47,16 @@ function clickOnPlayer2ScissorsButton() {
   readyToPlay()
 }
 function readyToPlay() {
+  if (player1Choice != ' ') {
+    if (player1RevealChoice) {
+      player1RevealChoice.className = player1RevealChoice.className + ' ready'
+    }
+  }
+  if (player2Choice != ' ') {
+    if (player2RevealChoice) {
+      player2RevealChoice.className = player2RevealChoice.className + ' ready'
+    }
+  }
   if (player1Choice != ' ' && player2Choice != ' ') {
     console.log('We are ready to play!')
     if (player1Choice === 'rock') {

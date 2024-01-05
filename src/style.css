@@ -40,3 +40,6 @@ ul {
 .spacer {
   padding: 5rem;
 }
+.ready {
+  background-color: rgb(39, 244, 39);
+}
