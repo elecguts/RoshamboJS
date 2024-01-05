@@ -8,7 +8,7 @@ const player1PaperButton = document.querySelector('.player1 .fa-hand')
 const player1ScissorsButton = document.querySelector(
   '.player1 .fa-hand-scissors'
 )
-const player1LizardButton = document.querySelector('player1 .fa-hand-lizard')
+const player1LizardButton = document.querySelector('.player1 .fa-hand-lizard')
 const player1SpockButton = document.querySelector('.player1 .fa-hand-spock')
 
 const player2RockButton = document.querySelector('.player2 .fa-hand-back-fist')
@@ -16,7 +16,7 @@ const player2PaperButton = document.querySelector('.player2 .fa-hand')
 const player2ScissorsButton = document.querySelector(
   '.player2 .fa-hand-scissors'
 )
-const player2LizardButton = document.querySelector('player2 .fa-hand-lizard')
+const player2LizardButton = document.querySelector('.player2 .fa-hand-lizard')
 const player2SpockButton = document.querySelector('.player2 .fa-hand-spock')
 
 const player1RevealChoice = document.querySelector('.player1 p i')
@@ -37,8 +37,16 @@ function clickOnPlayer1ScissorsButton() {
   console.log(`Player one's choice is ${player1Choice}!`)
   readyToPlay()
 }
-function clickOnPlayer1LizardButton() {}
-function clickOnPlayer1SpockButton() {}
+function clickOnPlayer1LizardButton() {
+  player1Choice = 'lizard'
+  console.log(`Player one's choice is ${player1Choice}!`)
+  readyToPlay()
+}
+function clickOnPlayer1SpockButton() {
+  player1Choice = 'spock'
+  console.log(`Player one's choice is ${player1Choice}!`)
+  readyToPlay()
+}
 function clickOnPlayer2RockButton() {
   player2Choice = 'rock'
   console.log(`Player two's choice is ${player2Choice}!`)
@@ -54,8 +62,16 @@ function clickOnPlayer2ScissorsButton() {
   console.log(`Player two's choice is ${player2Choice}!`)
   readyToPlay()
 }
-function clickOnPlayer2LizardButton() {}
-function clickOnPlayer2SpockButton() {}
+function clickOnPlayer2LizardButton() {
+  player2Choice = 'lizard'
+  console.log(`Player two's choice is ${player2Choice}!`)
+  readyToPlay()
+}
+function clickOnPlayer2SpockButton() {
+  player2Choice = 'spock'
+  console.log(`Player two's choice is ${player2Choice}!`)
+  readyToPlay()
+}
 function readyToPlay() {
   if (player1Choice != ' ') {
     if (player1RevealChoice) {
@@ -84,6 +100,16 @@ function readyToPlay() {
         player1RevealChoice.className = 'fa-solid fa-hand-scissors'
       }
     }
+    if (player1Choice === 'lizard') {
+      if (player1RevealChoice) {
+        player1RevealChoice.className = 'fa-solid fa-hand-lizard'
+      }
+    }
+    if (player1Choice === 'spock') {
+      if (player1RevealChoice) {
+        player1RevealChoice.className = 'fa-solid fa-hand-spock'
+      }
+    }
 
     if (player2Choice === 'rock') {
       if (player2RevealChoice) {
@@ -100,6 +126,16 @@ function readyToPlay() {
         player2RevealChoice.className = 'fa-solid fa-hand-scissors'
       }
     }
+    if (player2Choice === 'lizard') {
+      if (player2RevealChoice) {
+        player2RevealChoice.className = 'fa-solid fa-hand-lizard'
+      }
+    }
+    if (player2Choice === 'spock') {
+      if (player2RevealChoice) {
+        player2RevealChoice.className = 'fa-solid fa-hand-spock'
+      }
+    }
     weHaveAWinner()
   } else {
     console.log('We are not ready')
@@ -107,9 +143,16 @@ function readyToPlay() {
 }
 function weHaveAWinner() {
   if (
-    (player1Choice === 'rock' && player2Choice === 'scissors') ||
-    (player1Choice === 'scissors' && player2Choice === 'paper') ||
-    (player1Choice === 'paper' && player2Choice === 'rock')
+    (player1Choice === 'rock' &&
+      (player2Choice === 'scissors' || player2Choice === 'lizard')) ||
+    (player1Choice === 'scissors' &&
+      (player2Choice === 'paper' || player2Choice === 'lizard')) ||
+    (player1Choice === 'paper' &&
+      (player2Choice === 'rock' || player2Choice === 'spock')) ||
+    (player1Choice === 'lizard' &&
+      (player2Choice === 'paper' || player2Choice === 'spock')) ||
+    (player1Choice === 'spock' &&
+      (player2Choice === 'scissors' || player2Choice === 'rock'))
   ) {
     setTimeout(function () {
       window.alert('Player 1 wins!'), 100
